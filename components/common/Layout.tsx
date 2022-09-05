@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Container } from "@mui/material";
 import React from "react";
 // import Footer from "../Footer/Footer";
-// import Header from "../Navbar/Navbar";
+import Header from "./Navbar/Navbar";
 
 export default function Layout({ children }: any) {
   return (
@@ -14,7 +13,7 @@ export default function Layout({ children }: any) {
         height: "auto",
       }}
     >
-      {/* <Header /> */}
+      <Header />
       {children}
       {/* <Footer /> */}
     </Container>
