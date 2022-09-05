@@ -1,7 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-// import image from "../public/images/Chair.svg";
 
 export default function Custom404() {
   return (
@@ -19,7 +18,7 @@ export default function Custom404() {
         </Typography>
 
         <Image
-          src={"/chairsad.svg"}
+          src={"/stand.svg"}
           width={500}
           height={500}
           alt="Image Error 404"
