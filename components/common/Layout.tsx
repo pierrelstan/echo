@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-// import Footer from "../Footer/Footer";
+import Footer from "./Footer/Footer";
 import Header from "./Navbar/Navbar";
 
 export default function Layout({ children }: any) {
@@ -15,7 +15,7 @@ export default function Layout({ children }: any) {
     >
       <Header />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </Container>
   );
 }
