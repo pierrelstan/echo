@@ -35,13 +35,7 @@ export default function MenuDrawer() {
         {["Home", "Jeans", "Shirts", "Carts"].map((text) => (
           <ListItem key={text} disablePadding>
             <Button
-              href={`${
-                text === "Home"
-                  ? "/"
-                  : text === "Carts"
-                  ? `/${text}(0)`
-                  : `/${text}`
-              }`}
+              href={`${text === "Home" ? "/" : `/${text.toLocaleLowerCase()}`}`}
               sx={{ textDecoration: "none" }}
             >
               <ListItemText primary={text} />
@@ -53,7 +47,10 @@ export default function MenuDrawer() {
       <List>
         {["Login", "Demo User"].map((text) => (
           <ListItem key={text} disablePadding>
-            <Button href={`/${text}`} sx={{ textDecoration: "none" }}>
+            <Button
+              href={`/${text.toLocaleLowerCase()}`}
+              sx={{ textDecoration: "none" }}
+            >
               <ListItemText primary={text} />
             </Button>
           </ListItem>
