@@ -19,19 +19,22 @@ export default function HomePage({ sortedItems }: HomepageProps) {
       </Head>
       <HeroSection />
 
-      {sortedItems.map(({ category, products }) => (
-        <ProductCarousel
-          title={category}
-          key={category}
-          products={products}
-          category={category}
-        />
-      ))}
+      {sortedItems
+        ? sortedItems.map(({ category, products }) => (
+            <ProductCarousel
+              title={category}
+              key={category}
+              products={products}
+              category={category}
+            />
+          ))
+        : []}
     </div>
   );
 }
 export async function getServerSideProps() {
   const products = await getProducts();
+  console.log(products);
   const sortedItems: SortedItems[] = Categories.map((category) => ({
     category,
     products: products.filter((x: any) => x.category === category),
