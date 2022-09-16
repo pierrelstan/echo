@@ -11,7 +11,7 @@ async function getProducts() {
     if (error) {
       const {
         data: { products },
-      } = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/product`);
+      } = await axios.get(`/api/product`);
 
       return products;
     }
