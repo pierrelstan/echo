@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
   images: {
-    dangerouslyAllowSVG: true,
-    // formats: ['image/svg', 'image/png'],
+    disableStaticImages: true,
+    domains: [
+      "imgur.com",
+      "source.unsplash.com"
+    ]
   },
   webpack(config) {
     config.module.rules.push({

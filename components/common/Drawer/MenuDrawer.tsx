@@ -32,16 +32,21 @@ export default function MenuDrawer() {
   const list = (anchor: Anchor) => (
     <Box sx={{ maxWidth: "auto", width: "200px" }} role="presentation">
       <List>
-        {["Home", "Jeans", "Shirts", "Carts"].map((text) => (
+        {["Home", "Pc", "Ps5", "Xbox"].map((text) => (
           <ListItem key={text} disablePadding>
             <Button
-              href={`${text === "Home" ? "/" : `/${text.toLocaleLowerCase()}`}`}
-              sx={{ textDecoration: "none" }}
+              href={`${
+                text === "Home" ? "/" : `/${text.toLocaleLowerCase()}`
+              } `}
+              sx={{ textDecoration: "none", ml: 2 }}
             >
               <ListItemText primary={text} />
             </Button>
           </ListItem>
         ))}
+        <Button href={`Carts`} sx={{ textDecoration: "none", ml: 2 }}>
+          Carts (0)
+        </Button>
       </List>
       <Divider />
       <List>
@@ -49,7 +54,7 @@ export default function MenuDrawer() {
           <ListItem key={text} disablePadding>
             <Button
               href={`/${text.toLocaleLowerCase()}`}
-              sx={{ textDecoration: "none" }}
+              sx={{ textDecoration: "none", ml: 2 }}
             >
               <ListItemText primary={text} />
             </Button>
