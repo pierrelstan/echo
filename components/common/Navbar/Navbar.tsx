@@ -6,13 +6,6 @@ import Nav from "./Nav";
 import LoginDrawer from "../Drawer/LoginDrawer";
 import MenuDrawer from "../Drawer/MenuDrawer";
 
-const IsHeaderDisplay = styled("div")(({ theme }) => ({
-  display: "none",
-  [theme.breakpoints.up("md")]: {
-    display: "block",
-  },
-}));
-
 const IsMobileView = styled("div")(({ theme }) => ({
   display: "none",
   [theme.breakpoints.up("md")]: {

@@ -1,21 +1,23 @@
-import { Container } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import React from "react";
 import Footer from "./Footer/Footer";
 import Header from "./Navbar/Navbar";
 
 export default function Layout({ children }: any) {
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        height: "auto",
-      }}
-    >
-      <Header />
-      {children}
-      <Footer />
+    <Container fixed>
+      <Stack
+        direction="column"
+        spacing={8}
+        sx={{
+          px: 2,
+          mb: 8,
+        }}
+      >
+        <Header />
+        {children}
+        <Footer />
+      </Stack>
     </Container>
   );
 }

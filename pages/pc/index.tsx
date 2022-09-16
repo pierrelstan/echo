@@ -1,6 +1,6 @@
 import PageUnderConstruction from "components/PageUnderConstruction";
 import React from "react";
 
-export default function OneCart() {
+export default function Pc() {
   return <PageUnderConstruction />;
 }
