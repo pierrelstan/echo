@@ -44,7 +44,7 @@ export default function MenuDrawer() {
             </Button>
           </ListItem>
         ))}
-        <Button href={`Carts`} sx={{ textDecoration: "none", ml: 2 }}>
+        <Button href={`carts`} sx={{ textDecoration: "none", ml: 2 }}>
           Carts (0)
         </Button>
       </List>
