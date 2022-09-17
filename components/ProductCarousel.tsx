@@ -56,9 +56,11 @@ export default function ProductCarousel(props: Props) {
           py: 2,
         }}
       >
-        {products.map((product, key) => (
-          <ProductCard key={key} {...{ product }} />
-        ))}
+        {products
+          ? products.map((product, key) => (
+              <ProductCard key={key} {...{ product }} />
+            ))
+          : []}
       </Stack>
     </Box>
   );
