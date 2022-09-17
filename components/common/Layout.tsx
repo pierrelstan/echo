@@ -6,14 +6,7 @@ import Header from "./Navbar/Navbar";
 export default function Layout({ children }: any) {
   return (
     <Container fixed>
-      <Stack
-        direction="column"
-        spacing={8}
-        sx={{
-          px: 2,
-          mb: 8,
-        }}
-      >
+      <Stack direction="column" spacing={5}>
         <Header />
         {children}
         <Footer />
