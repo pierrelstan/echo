@@ -34,7 +34,6 @@ export default function HomePage({ sortedItems }: HomepageProps) {
 }
 export async function getServerSideProps() {
   const products = await getProducts();
-  console.log(products);
   const sortedItems: SortedItems[] = Categories.map((category) => ({
     category,
     products: products.filter((x: any) => x.category === category),
