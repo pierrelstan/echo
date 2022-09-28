@@ -5,16 +5,13 @@ async function getProducts() {
   try {
     const {
       data: { products },
-    } = await axios.get(`${process.env.HOST}${routes.products}`);
+    } = await axios.get(
+      `${process.env.NEXT_PUBLIC_DATABASE_URL}` + routes.api.products
+    );
+
     return products;
   } catch (error) {
-    if (error) {
-      const {
-        data: { products },
-      } = await axios.get(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/product`);
-
-      return products;
-    }
+    console.log(error);
   }
 }
 
