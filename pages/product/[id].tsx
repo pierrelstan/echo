@@ -1,8 +1,7 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-// import ImageGallery from "features/image-gallery/ImageGallery";
-import ProductDetailsText from "../../features/product/ProductDetailsText";
-import { Product } from "../../types/types";
+import ProductDetailsText from "components/ProductDetailsText";
+import { Product } from "types/types";
 import { GetServerSideProps } from "next";
 import React from "react";
 import getProductById from "utils/getProductById.util";
@@ -57,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as Params;
 
   const data = await getProductById(id);
-  const product = Object.assign({}, ...data);
+  const product = data;
 
   if (!product) return { notFound: true };
   return { props: { product } };
