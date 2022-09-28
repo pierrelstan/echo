@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import React from "react";
 import Nav from "./Nav";
-import LoginDrawer from "../Drawer/LoginDrawer";
+import UserDrawer from "../Drawer/UserDrawer";
 import MenuDrawer from "../Drawer/MenuDrawer";
 
 const IsMobileView = styled("div")(({ theme }) => ({
@@ -54,24 +54,8 @@ export default function Navbar() {
           </Grid>
           <Logo sx={{ flexGrow: 1 }}></Logo>
           <IsMobileView>
-            <Nav>
-              <Button
-                variant="contained"
-                size="small"
-                sx={{
-                  my: 1,
-                  mx: 1.4,
-                  fontSize: [4, 16],
-                  width: "auto",
-                  ":hover": {
-                    backgroundColor: "primary.main",
-                  },
-                }}
-              >
-                Demo User
-              </Button>
-            </Nav>
-            <LoginDrawer />
+            <Nav />
+            <UserDrawer />
 
             <Button href={"/carts"}>
               <ShoppingCartIcon />
