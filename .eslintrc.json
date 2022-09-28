@@ -5,10 +5,20 @@
     "prettier",
     "next/core-web-vitals"
   ],
-  "plugins": ["cypress", "@typescript-eslint"],
+  "plugins": ["cypress", "@typescript-eslint", "testing-library"],
   "env": {
     "cypress/globals": true
   },
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "react/no-unknown-property": [2, { "ignore": ["class", "for", "key"] }],
