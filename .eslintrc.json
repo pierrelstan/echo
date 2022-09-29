@@ -22,6 +22,7 @@
   "parser": "@typescript-eslint/parser",
   "rules": {
     "react/no-unknown-property": [2, { "ignore": ["class", "for", "key"] }],
+    "no-unused-vars": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-var-requires": "off",
