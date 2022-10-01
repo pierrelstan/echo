@@ -10,6 +10,7 @@
     "cy-c": "npx cypress open --component",
     "test": "jest --watch",
     "test:ci": "jest --ci",
+    "test-coverage": "jest --coverage",
     "prettier": "prettier --check .",
     "prepare": "husky install"
   },
@@ -48,7 +49,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/cors": "^2.8.12",
-    "@types/jest": "^29.0.0",
+    "@types/jest": "^29.1.1",
     "@types/node": "18.7.13",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
