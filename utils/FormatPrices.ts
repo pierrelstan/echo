@@ -1,4 +1,4 @@
-import { Product } from "types/types";
+import { Product } from "@/utils/types";
 
 function formatItemPrice(product: Product) {
   return `$${product.price.toFixed(2)}`;

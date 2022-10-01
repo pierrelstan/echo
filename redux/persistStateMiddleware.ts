@@ -1,5 +1,5 @@
 import { Middleware } from "@reduxjs/toolkit";
-import { persistState } from "utils/localStorage.utils";
+import { persistState } from "@/utils/localStorage.utils";
 import { STORAGE_KEY } from "./store";
 
 export const persistStateMiddleware: Middleware =

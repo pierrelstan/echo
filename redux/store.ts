@@ -1,4 +1,4 @@
-import { getLocalStorage } from "utils/localStorage.utils";
+import { getLocalStorage } from "@/utils/localStorage.utils";
 import { persistStateMiddleware } from "./persistStateMiddleware";
 
 export const STORAGE_KEY = "store";

@@ -1,10 +1,10 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import ProductDetailsText from "components/ProductDetailsText";
-import { Product } from "types/types";
+import ProductDetailsText from "@/components/ProductDetailsText";
+import { Product } from "@/utils/types";
 import { GetServerSideProps } from "next";
 import React from "react";
-import getProductById from "utils/getProductById.util";
+import getProductById from "@/utils/getProductById.util";
 import Image from "next/image";
 
 type Params = {
