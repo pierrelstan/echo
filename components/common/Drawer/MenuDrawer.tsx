@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -7,57 +8,57 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
+import Link from "@/components/Link";
 
-type Anchor = "left";
+const StyledLink = styled(Link)(() => ({
+  textDecoration: "none",
+  margin: "5px 15px",
+  flexGrow: 1,
+  justifyContent: "center",
+  alignItems: "center",
+}));
 
 export default function MenuDrawer() {
-  const [state, setState] = React.useState({
-    left: false,
-  });
+  const [showNavDrawer, setShowNavDrawer] = useState(false);
 
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
-
-      setState({ ...state, [anchor]: open });
-    };
-
-  const list = (anchor: Anchor) => (
+  const list = () => (
     <Box sx={{ maxWidth: "auto", width: "200px" }} role="presentation">
       <List>
         {["Home", "Pc", "Ps5", "Xbox"].map((text) => (
           <ListItem key={text} disablePadding>
-            <Button
+            <StyledLink
               href={`${
                 text === "Home" ? "/" : `/${text.toLocaleLowerCase()}`
               } `}
-              sx={{ textDecoration: "none", ml: 2 }}
+              sx={{
+                textDecoration: "none",
+                fontSize: "18px",
+                fontWeight: "700",
+              }}
             >
               <ListItemText primary={text} />
-            </Button>
+            </StyledLink>
           </ListItem>
         ))}
-        <Button href={`carts`} sx={{ textDecoration: "none", ml: 2 }}>
-          Carts (0)
-        </Button>
       </List>
+      <List>
+        <ListItem disablePadding>
+          <StyledLink href={`carts`} sx={{ textDecoration: "none" }}>
+            Carts (0)
+          </StyledLink>
+        </ListItem>
+      </List>
+
       <Divider />
       <List>
         {["Login", "Demo User"].map((text) => (
           <ListItem key={text} disablePadding>
-            <Button
+            <StyledLink
               href={`/${text.toLocaleLowerCase()}`}
               sx={{ textDecoration: "none", ml: 2 }}
             >
               <ListItemText primary={text} />
-            </Button>
+            </StyledLink>
           </ListItem>
         ))}
       </List>
@@ -66,20 +67,16 @@ export default function MenuDrawer() {
 
   return (
     <div>
-      {(["left"] as const).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <MenuIcon fontSize="medium" />
-          </Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
+      <Button onClick={() => setShowNavDrawer(true)}>
+        <MenuIcon fontSize="medium" />
+      </Button>
+      <Drawer
+        anchor={"left"}
+        open={showNavDrawer}
+        onClose={() => setShowNavDrawer(false)}
+      >
+        {list()}
+      </Drawer>
     </div>
   );
 }

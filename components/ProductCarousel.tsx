@@ -2,10 +2,10 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "../components/Link";
-import { Product, ProductCategory } from "../types/types";
+import Link from "@/components/Link";
+import { Product, ProductCategory } from "@/utils/types";
 import React from "react";
-import routes from "../utils/routes";
+import routes from "@/utils/routes";
 import ProductCard from "./ProductCard";
 
 interface Props {
@@ -28,7 +28,7 @@ export default function ProductCarousel(props: Props) {
 
   const CategoryLink = () => (
     <Link
-      href={routes.category(category)}
+      href={routes.category(category.toLocaleLowerCase())}
       sx={{
         verticalAlign: "baseline",
         display: "flex",

@@ -1,12 +1,12 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "../components/Link";
-import { Product } from "../types/types";
+import Link from "@/components/Link";
+import { Product } from "../utils/types";
 import React from "react";
-import routes from "utils/routes";
+import routes from "@/utils/routes";
 import Image from "next/image";
 import Box from "@mui/material/Box";
-import formatItemPrice from "../utils/FormatPrices";
+import formatItemPrice from "@/utils/FormatPrices";
 import StarIcon from "@mui/icons-material/Star";
 
 const ProductCard = ({ product }: { product: Product }) => {

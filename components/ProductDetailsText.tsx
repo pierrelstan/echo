@@ -1,7 +1,7 @@
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Product } from "../../types/types";
+import { Product } from "../utils/types";
 import { loremIpsum } from "lorem-ipsum";
 import React from "react";
 

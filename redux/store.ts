@@ -1,8 +1,17 @@
+import { getLocalStorage } from "@/utils/localStorage.utils";
+import { persistStateMiddleware } from "./persistStateMiddleware";
+
+export const STORAGE_KEY = "store";
+
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+
+import userReducer from "../features/user/userSlice";
 
 export function makeStore() {
   return configureStore({
-    reducer: {},
+    reducer: { user: userReducer },
+    preloadedState: getLocalStorage(STORAGE_KEY) ?? {},
+    middleware: [persistStateMiddleware],
   });
 }
 
