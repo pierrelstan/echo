@@ -5,6 +5,7 @@ import React from "react";
 import Nav from "./Nav";
 import UserDrawer from "../Drawer/UserDrawer";
 import MenuDrawer from "../Drawer/MenuDrawer";
+import Link from "@/components/Link";
 
 const IsMobileView = styled("div")(({ theme }) => ({
   display: "none",
@@ -49,7 +50,7 @@ export default function Navbar() {
               sx={{ fontWeight: "bold", marginLeft: "10px", fontSize: "18px" }}
               align="center"
             >
-              Echo Store
+              <Link href={"/"}>Echo Store</Link>
             </Typography>
           </Grid>
           <Logo sx={{ flexGrow: 1 }}></Logo>
