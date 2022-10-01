@@ -1,10 +1,9 @@
-import { Box, Button, Typography, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import HeroCarousel from "./HeroCarousel";
 
 export default function HeroSection() {
-  const YEAR = new Date().getFullYear();
   return (
     <Grid
       sx={{
