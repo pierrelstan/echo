@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -14,22 +14,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "cypress", "@testing-library/jest-dom"],
     "paths": {
-      "@components/*": ["conponents/*"],
-      "@features/*": ["features/*"],
-      "@utils/*": ["utils/*"],
-      "@redux/*": ["redux/*"],
-      "@pages/*": ["pages/*"]
+      "@/components/*": ["components/*"],
+      "@/features/*": ["features/*"],
+      "@/utils/*": ["utils/*"],
+      "@/redux/*": ["redux/*"],
+      "@/pages/*": ["pages/*"]
     },
     "noEmit": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "components",
-    "**/*.spec.ts"
-  ],
-  "exclude": ["node_modules", "cypress", "**/*.spec.ts"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js"],
+  "exclude": ["node_modules", "cypress", "./cypress.config.ts"]
 }
