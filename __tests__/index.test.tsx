@@ -1,11 +1,19 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
+import Homepage from "@/pages/index";
+import React from "react";
+import { Provider } from "react-redux";
+import store from "@/redux/store";
 
-import Footer from "../components/common/Footer/Footer";
+describe("Home page", () => {
+  render(
+    <Provider store={store}>
+      <Homepage sortedItems={[]} />
+    </Provider>
+  );
 
-describe("Home", () => {
-  it("renders a heading", () => {
-    render(<Footer />);
+  afterAll(cleanup);
 
-    // expect(aboutAnchorNode).toBeInTheDocument();
+  it("renders Home page", () => {
+    expect(true);
   });
 });
