@@ -18,7 +18,7 @@ export const userSlice = createSlice({
   name: "user/auth",
   initialState,
   reducers: {
-    userAuthentication: (state, action) => {
+    login: (state, action) => {
       state.isAuth = true;
       state.token = action.payload.token;
       state.user = { ...action.payload.user };
@@ -26,7 +26,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { userAuthentication } = userSlice.actions;
+export const { login } = userSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

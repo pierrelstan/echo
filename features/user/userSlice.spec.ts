@@ -1,4 +1,4 @@
-import userReducer, { userAuthentication } from "./userSlice";
+import userReducer, { login } from "./userSlice";
 
 import { initialState } from "./userSlice";
 const dummyDataUser = {
@@ -21,7 +21,7 @@ describe("user reducer", () => {
   });
 
   it("login", () => {
-    const actual = userReducer(initialState, userAuthentication(dummyDataUser));
+    const actual = userReducer(initialState, login(dummyDataUser));
     expect(actual.isAuth).toBe(true);
   });
 });

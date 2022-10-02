@@ -10,7 +10,7 @@ import * as yup from "yup";
 import axios from "axios";
 import routes from "@/utils/routes";
 import SubmitButton, { SubmitStatus } from "./Forms/SubmitButton";
-import { userAuthentication } from "@/features/user/userSlice";
+import { login } from "@/features/user/userSlice";
 
 const validationSchema = yup.object({
   email: yup
@@ -47,7 +47,7 @@ export default function LoginForm() {
       if (res.status === 200) {
         setSubmitState("done");
         const { data } = res;
-        dispatch(userAuthentication(data));
+        dispatch(login(data));
       }
     } catch (error) {
       setSubmitState("retry");
