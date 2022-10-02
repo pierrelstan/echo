@@ -1,4 +1,4 @@
-import userReducer, { login } from "./userSlice";
+import userReducer, { login, logout } from "./userSlice";
 
 import { initialState } from "./userSlice";
 const dummyDataUser = {
@@ -15,6 +15,7 @@ const dummyDataUser = {
     },
   },
 };
+
 describe("user reducer", () => {
   it("should handle initial state", () => {
     expect(userReducer(undefined, { type: "unknown" })).toEqual(initialState);
@@ -23,5 +24,9 @@ describe("user reducer", () => {
   it("login", () => {
     const actual = userReducer(initialState, login(dummyDataUser));
     expect(actual.isAuth).toBe(true);
+  });
+  it("logout", () => {
+    const actual = userReducer(initialState, logout());
+    expect(actual.isAuth).toBe(false);
   });
 });

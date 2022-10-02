@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Form, Formik } from "formik";
-import { useAppDispatch } from "redux/hooks";
+import { useAppDispatch, useAppSelector } from "redux/hooks";
 import { Typography, Box, Stack, Button } from "@mui/material";
 
 import { EmailField, PasswordField } from "@/components/Forms/Fields";
@@ -10,7 +10,7 @@ import * as yup from "yup";
 import axios from "axios";
 import routes from "@/utils/routes";
 import SubmitButton, { SubmitStatus } from "./Forms/SubmitButton";
-import { login } from "@/features/user/userSlice";
+import { login, selectIsAuth, logout } from "@/features/user/userSlice";
 
 const validationSchema = yup.object({
   email: yup
@@ -36,6 +36,7 @@ export default function LoginForm() {
   const [submitState, setSubmitState] = useState<SubmitStatus>("ready");
 
   const dispatch = useAppDispatch();
+  const isAuth = useAppSelector(selectIsAuth);
 
   const onSubmit = async (values: { email: string; password: string }) => {
     setSubmitState("submitting");
@@ -53,7 +54,16 @@ export default function LoginForm() {
       setSubmitState("retry");
     }
   };
-
+  if (isAuth)
+    return (
+      <Button
+        onClick={() => {
+          dispatch(logout());
+        }}
+      >
+        Sign Out
+      </Button>
+    );
   return (
     <Formik
       initialValues={initialValues}
