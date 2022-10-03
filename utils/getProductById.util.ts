@@ -6,7 +6,7 @@ async function getProductById(id: string) {
     const {
       data: { product },
     } = await axios.get(
-      `${process.env.NEXT_PUBLIC_DATABASE_URL}` + routes.api.product(id)
+      `${process.env.NEXT_PUBLIC_URL}` + routes.api.product(id)
     );
     return product;
   } catch (error) {

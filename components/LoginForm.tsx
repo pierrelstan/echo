@@ -42,7 +42,7 @@ export default function LoginForm() {
     setSubmitState("submitting");
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_DATABASE_URL}` + routes.login,
+        `${process.env.NEXT_PUBLIC_URL}` + routes.login,
         values
       );
       if (res.status === 200) {
