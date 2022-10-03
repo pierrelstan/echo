@@ -6,7 +6,7 @@ async function getProducts() {
     const {
       data: { products },
     } = await axios.get(`${process.env.NEXT_PUBLIC_URL}` + routes.api.products);
-
+    console.log(process.env.NEXT_PUBLIC_URL);
     return products;
   } catch (error) {
     console.log(error);
