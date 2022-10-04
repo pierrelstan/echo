@@ -24,22 +24,18 @@ export default function MenuDrawer() {
   const list = () => (
     <Box sx={{ maxWidth: "auto", width: "200px" }} role="presentation">
       <List>
-        {["Home", "Pc", "Ps5", "Xbox"].map((text) => (
-          <ListItem key={text} disablePadding>
-            <StyledLink
-              href={`${
-                text === "Home" ? "/" : `/${text.toLocaleLowerCase()}`
-              } `}
-              sx={{
-                textDecoration: "none",
-                fontSize: "18px",
-                fontWeight: "700",
-              }}
-            >
-              <ListItemText primary={text} />
-            </StyledLink>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <StyledLink
+            href={"/"}
+            sx={{
+              textDecoration: "none",
+              fontSize: "18px",
+              fontWeight: "700",
+            }}
+          >
+            <ListItemText primary={"Home"} />
+          </StyledLink>
+        </ListItem>
       </List>
       <List>
         <ListItem disablePadding>
