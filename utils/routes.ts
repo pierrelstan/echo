@@ -1,6 +1,6 @@
 const routes = {
   product: (id: string) => `/product/${id}`,
-  category: (query: string) => `/category/${query}`,
+  category: (id: string) => `/category/${id}`,
   cart: "/cart",
   checkout: "/checkout",
   register: "/register",

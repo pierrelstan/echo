@@ -50,39 +50,43 @@ export default function CategoryPage({ products }: CategoryPageProps) {
             cols={lg ? 4 : md ? 3 : sm ? 3 : 2}
             rowHeight={"auto"}
           >
-            {products.map((product) => (
-              <ImageListItem key={product._id}>
-                <Link href={routes.product(product._id)}>
-                  <Box
-                    sx={{
-                      minHeight: {
-                        xs: 150,
-                        sm: 200,
-                        md: 250,
-                      },
-                      position: "relative",
-                      borderRadius: 1,
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      placeholder="empty"
-                      layout="fill"
-                      objectFit="cover"
+            {products
+              ? products.map((product) => (
+                  <ImageListItem key={product._id}>
+                    <Link href={routes.product(product._id)}>
+                      <Box
+                        sx={{
+                          minHeight: {
+                            xs: 150,
+                            sm: 200,
+                            md: 250,
+                          },
+                          position: "relative",
+                          borderRadius: 1,
+                          overflow: "hidden",
+                        }}
+                      >
+                        <Image
+                          src={product.image}
+                          alt={product.title}
+                          placeholder="empty"
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </Box>
+                    </Link>
+                    <ImageListItemBar
+                      title={
+                        <Typography variant="h5">{product.title}</Typography>
+                      }
+                      subtitle={
+                        <Typography>{formatProductPrices(product)}</Typography>
+                      }
+                      position="bottom"
                     />
-                  </Box>
-                </Link>
-                <ImageListItemBar
-                  title={<Typography variant="h5">{product.title}</Typography>}
-                  subtitle={
-                    <Typography>{formatProductPrices(product)}</Typography>
-                  }
-                  position="bottom"
-                />
-              </ImageListItem>
-            ))}
+                  </ImageListItem>
+                ))
+              : []}
           </ImageList>
         </Box>
       </Container>
