@@ -1,15 +1,14 @@
 const routes = {
   product: (id: string) => `/product/${id}`,
-  category: (id: string) => `/category/${id}`,
+  category: (query: string) => `/category/${query}`,
   cart: "/cart",
   checkout: "/checkout",
   register: "/register",
   login: `/user/login`,
+  categories: (query: string = "") => `/products/category/${query}`,
   api: {
     products: "/products",
     product: (id: string = "") => `/products/${id}`,
-    categories: (id: string = "") => `/api/categories/${id}`,
-    login: `/user/login`,
   },
 };
 

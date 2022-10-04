@@ -28,7 +28,7 @@ export default function ProductCarousel(props: Props) {
 
   const CategoryLink = () => (
     <Link
-      href={routes.category(category.toLocaleLowerCase())}
+      href={routes.category(category)}
       sx={{
         verticalAlign: "baseline",
         display: "flex",

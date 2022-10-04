@@ -6,7 +6,7 @@ import React from "react";
 import routes from "@/utils/routes";
 import Image from "next/image";
 import Box from "@mui/material/Box";
-import formatItemPrice from "@/utils/FormatPrices";
+import formatProductPrices from "@/utils/formatPrices";
 import StarIcon from "@mui/icons-material/Star";
 
 const ProductCard = ({ product }: { product: Product }) => {
@@ -22,7 +22,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       {title}
     </Typography>
   );
-  const Price = () => <Typography>{formatItemPrice(product)}</Typography>;
+  const Price = () => <Typography>{formatProductPrices(product)}</Typography>;
 
   const Thumbnail = () => (
     <Box
