@@ -6,11 +6,11 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Link from "components/Link";
+import Link from "@/components/Link";
 import { Product, ProductCategory } from "@/utils/types";
 import Image from "next/image";
 import React from "react";
-import routes from "utils/routes";
+import routes from "@/utils/routes";
 import formatProductPrices from "@/utils/formatPrices";
 import getProductsCategory from "@/utils/getProductCategory";
 
@@ -19,13 +19,12 @@ interface CategoryPageProps {
 }
 
 export default function CategoryPage({ products }: CategoryPageProps) {
-  // console.log(products);
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
   const md = useMediaQuery(theme.breakpoints.up("md"));
   const lg = useMediaQuery(theme.breakpoints.up("lg"));
   const categoryName = products[0]?.category ?? "";
-  // console.log(categoryName);
+
   const Title = () => (
     <Typography component="h2" variant="h4">
       {categoryName}
