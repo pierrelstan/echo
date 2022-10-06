@@ -5,7 +5,10 @@ const routes = {
   checkout: "/checkout",
   register: "/register",
   login: `/user/login`,
-  categories: (query: string = "") => `/products/category/${query}`,
+  categories: (query: string | string[] = "") => {
+    return `/products/category/${query}`;
+  },
+
   api: {
     products: "/products",
     product: (id: string = "") => `/products/${id}`,
