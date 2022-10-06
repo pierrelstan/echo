@@ -1,17 +1,35 @@
-import { getLocalStorage } from "@/utils/localStorage.utils";
-import { persistStateMiddleware } from "./persistStateMiddleware";
-
-export const STORAGE_KEY = "store";
+import storage from "redux-persist/lib/storage";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
-import userReducer from "../features/user/userSlice";
+import userReducer from "@/features/user/userSlice";
+import productReducer from "@/features/product/productSlice";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, userReducer);
 
 export function makeStore() {
   return configureStore({
-    reducer: { user: userReducer },
-    preloadedState: getLocalStorage(STORAGE_KEY) ?? {},
-    middleware: [persistStateMiddleware],
+    reducer: { user: persistedReducer, product: productReducer },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
   });
 }
 
@@ -28,4 +46,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   Action<string>
 >;
 
-export default store;
+const persistor = persistStore(store);
+export { store, persistor };
