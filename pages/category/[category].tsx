@@ -1,31 +1,45 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import ImageList from "@mui/material/ImageList";
+import { useAppDispatch, useAppSelector } from "redux/hooks";
+import { useRouter } from "next/router";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Link from "components/Link";
-import { Product, ProductCategory } from "@/utils/types";
+import Link from "@/components/Link";
 import Image from "next/image";
-import React from "react";
-import routes from "utils/routes";
+import React, { useEffect } from "react";
+import routes from "@/utils/routes";
 import formatProductPrices from "@/utils/formatPrices";
-import getProductsCategory from "@/utils/getProductCategory";
+import {
+  getProductsCategoryAsync,
+  selectProducts,
+} from "@/features/product/productSlice";
+import Loading from "@/components/Loading";
 
-interface CategoryPageProps {
-  products: Product[];
-}
-
-export default function CategoryPage({ products }: CategoryPageProps) {
-  // console.log(products);
+export default function CategoryPage() {
+  const dispatch = useAppDispatch();
   const theme = useTheme();
+  const router = useRouter();
+  const { category } = router.query;
+
+  const productState = useAppSelector(selectProducts);
+
+  const loading = productState.loading;
+  const products = productState.products;
+
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
   const md = useMediaQuery(theme.breakpoints.up("md"));
   const lg = useMediaQuery(theme.breakpoints.up("lg"));
+
   const categoryName = products[0]?.category ?? "";
-  // console.log(categoryName);
+
+  useEffect(() => {
+    dispatch(getProductsCategoryAsync(category));
+  }, [category]);
+
   const Title = () => (
     <Typography component="h2" variant="h4">
       {categoryName}
@@ -88,7 +102,9 @@ export default function CategoryPage({ products }: CategoryPageProps) {
       </Container>
     );
   }
-
+  if (loading === "pending") {
+    return <Loading />;
+  }
   return (
     <Box
       sx={{
@@ -104,14 +120,3 @@ export default function CategoryPage({ products }: CategoryPageProps) {
     </Box>
   );
 }
-
-interface Context {
-  params: { category: string };
-}
-export const getServerSideProps = async ({ params }: Context) => {
-  const { category } = params;
-  const { products } = await getProductsCategory(category as ProductCategory);
-
-  const props = { products: products };
-  return { props };
-};

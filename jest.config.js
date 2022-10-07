@@ -14,6 +14,7 @@ const customJestConfig = {
     "^@/pages/(.*)$": "<rootDir>/pages/$1",
     "^@/utils/(.*)$": "<rootDir>/utils/$1",
     "^@/redux/(.*)$": "<rootDir>/redux/$1",
+    "^@/features/(.*)$": "<rootDir>/features/$1",
   },
   testEnvironment: "jest-environment-jsdom",
 };

@@ -2,7 +2,7 @@ import HeroSection from "@/components/common/Hero/HeroSection";
 import { Categories, Product, ProductCategory } from "@/utils/types";
 import getProducts from "@/utils/getProduct.util";
 import ProductCarousel from "@/components/ProductCarousel";
-import Header from "./Head";
+import Header from "../components/Head";
 
 type HomepageProps = {
   sortedItems: SortedItems[];
