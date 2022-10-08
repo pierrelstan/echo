@@ -41,10 +41,11 @@ export default function LoginForm() {
   const onSubmit = async (values: { email: string; password: string }) => {
     setSubmitState("submitting");
     try {
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_DATABASE_URL}` + routes.login,
-        values
-      );
+      const res = await axios({
+        method: "post",
+        url: `${process.env.NEXT_PUBLIC_DATABASE_URL}` + routes.login,
+        data: { email: values.email, password: values.password },
+      });
       if (res.status === 200) {
         setSubmitState("done");
         const { data } = res;

@@ -9,6 +9,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "@/components/Link";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectIsAuth, logout } from "@/features/user/userSlice";
 
 const StyledLink = styled(Link)(() => ({
   textDecoration: "none",
@@ -20,6 +22,7 @@ const StyledLink = styled(Link)(() => ({
 
 export default function MenuDrawer() {
   const [showNavDrawer, setShowNavDrawer] = useState(false);
+  const isAuth = useAppSelector(selectIsAuth);
 
   const list = () => (
     <Box sx={{ maxWidth: "auto", width: "200px" }} role="presentation">
@@ -47,16 +50,15 @@ export default function MenuDrawer() {
 
       <Divider />
       <List>
-        {["Login", "Demo User"].map((text) => (
-          <ListItem key={text} disablePadding>
-            <StyledLink
-              href={`/${text.toLocaleLowerCase()}`}
-              sx={{ textDecoration: "none", ml: 2 }}
-            >
-              <ListItemText primary={text} />
+        <ListItem disablePadding>
+          {isAuth ? (
+            <Logout />
+          ) : (
+            <StyledLink href={"/login"} sx={{ textDecoration: "none", ml: 2 }}>
+              Login
             </StyledLink>
-          </ListItem>
-        ))}
+          )}
+        </ListItem>
       </List>
     </Box>
   );
@@ -76,3 +78,11 @@ export default function MenuDrawer() {
     </div>
   );
 }
+const Logout = () => {
+  const dispatch = useAppDispatch();
+  return (
+    <StyledLink href="" onClick={() => dispatch(logout())}>
+      Logout
+    </StyledLink>
+  );
+};
