@@ -45,6 +45,9 @@ export default function LoginForm() {
         method: "post",
         url: `${process.env.NEXT_PUBLIC_DATABASE_URL}` + routes.login,
         data: { email: values.email, password: values.password },
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       if (res.status === 200) {
         setSubmitState("done");
