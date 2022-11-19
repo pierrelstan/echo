@@ -1,3 +1,12 @@
+const dummyProduct = {
+  _id: "632389dbf8dabbb6d1ae37fd",
+  title: "Cyberpunk 2077",
+  category: "Xbox",
+  image: "https://imgur.com/3CF1UhY.png",
+  price: "36.49",
+  userId: "",
+};
+
 const dummyProductCategory = {
   loading: "succeeded",
   product: {
@@ -69,4 +78,4 @@ const dummyDataUser = {
     },
   },
 };
-export { dummyProductCategory, dummyDataUser };
+export { dummyProductCategory, dummyDataUser, dummyProduct };

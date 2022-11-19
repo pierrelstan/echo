@@ -1,15 +1,26 @@
 interface Product {
   _id: string;
   title: string;
-  description: string;
   image: string;
-  price: number;
+  price: string;
   category: string;
   userId: any;
 }
 
-export type ProductCategory = "Xbox" | "Ps5" | "Pc";
+// _id: string; title: string; category: string; image: string; price: string;
+
+type ProductCategory = "Xbox" | "Ps5" | "Pc";
 
 export const Categories: ProductCategory[] = ["Xbox", "Ps5", "Pc"];
 
-export type { Product };
+type CartProductData = Product & {
+  id: string;
+  quantity: number;
+};
+
+interface CartProduct extends Product {
+  id: string;
+  quantity: number;
+}
+
+export type { Product, CartProductData, ProductCategory, CartProduct };

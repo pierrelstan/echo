@@ -1,11 +1,15 @@
-import { AppBar, Toolbar, Button, Box, Typography, Grid } from "@mui/material";
+import { AppBar, Toolbar, Box, Typography, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import React from "react";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
 import Nav from "./Nav";
 import UserDrawer from "../Drawer/UserDrawer";
 import MenuDrawer from "../Drawer/MenuDrawer";
 import Link from "@/components/Link";
+import { useAppSelector } from "@/redux/hooks";
+import { selectIsCart } from "@/features/user/userSlice";
 
 const IsMobileView = styled("div")(({ theme }) => ({
   display: "none",
@@ -13,6 +17,14 @@ const IsMobileView = styled("div")(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+}));
+const StyledBadge = styled(Badge)<BadgeProps>(() => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid`,
+    padding: "0 4px",
   },
 }));
 
@@ -26,6 +38,7 @@ const Logo = styled(Box)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const cart = useAppSelector(selectIsCart);
   return (
     <>
       <AppBar
@@ -57,10 +70,15 @@ export default function Navbar() {
           <IsMobileView>
             <Nav />
             <UserDrawer />
-
-            <Button href={"/carts"}>
-              <ShoppingCartIcon />
-            </Button>
+            <IconButton aria-label="cart" href={"/carts"}>
+              <StyledBadge badgeContent={cart.length} color="primary">
+                <ShoppingCartIcon
+                  sx={{
+                    color: "primary",
+                  }}
+                />
+              </StyledBadge>
+            </IconButton>
           </IsMobileView>
         </Toolbar>
       </AppBar>
