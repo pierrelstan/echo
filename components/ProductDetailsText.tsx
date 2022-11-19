@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Product } from "../utils/types";
 import { loremIpsum } from "lorem-ipsum";
 import React from "react";
+import AddToCartForm from "@/features/add-to-cart/AddToCartForm";
 
 const ProductDetailsText = ({ product }: { product: Product }) => {
   const [Text, setText] = React.useState("");
@@ -31,6 +32,7 @@ const ProductDetailsText = ({ product }: { product: Product }) => {
       <Typography>${product.price}</Typography>
       <Divider />
       <Typography>{Text}</Typography>
+      <AddToCartForm product={product} />
     </Stack>
   );
 };

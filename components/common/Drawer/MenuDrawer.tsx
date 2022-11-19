@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "@/components/Link";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectIsAuth, logout } from "@/features/user/userSlice";
+import { selectIsAuth, logout, selectIsCart } from "@/features/user/userSlice";
 
 const StyledLink = styled(Link)(() => ({
   textDecoration: "none",
@@ -23,6 +23,7 @@ const StyledLink = styled(Link)(() => ({
 export default function MenuDrawer() {
   const [showNavDrawer, setShowNavDrawer] = useState(false);
   const isAuth = useAppSelector(selectIsAuth);
+  const cart = useAppSelector(selectIsCart);
 
   const list = () => (
     <Box sx={{ maxWidth: "auto", width: "200px" }} role="presentation">
@@ -43,7 +44,7 @@ export default function MenuDrawer() {
       <List>
         <ListItem disablePadding>
           <StyledLink href={`carts`} sx={{ textDecoration: "none" }}>
-            Carts (0)
+            Carts ({cart.length})
           </StyledLink>
         </ListItem>
       </List>
