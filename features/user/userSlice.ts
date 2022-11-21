@@ -22,7 +22,6 @@ export const userSlice = createSlice({
   reducers: {
     addProduct: (state, action: PayloadAction<CartProduct>) => {
       const { id } = action.payload;
-      console.log(id);
       const existingItem = state.cart.find((x) => x.id === id);
       if (existingItem) {
         existingItem.quantity++;
@@ -36,7 +35,7 @@ export const userSlice = createSlice({
         cart: state.cart.filter((x) => x.id !== action.payload),
       };
     },
-    changeItemQuantity: (state, action: PayloadAction<CartProduct>) => {
+    changeProductQuantity: (state, action: PayloadAction<CartProduct>) => {
       const { quantity, id } = action.payload;
       return {
         ...state,
@@ -52,6 +51,12 @@ export const userSlice = createSlice({
           .filter((x) => x.quantity),
       };
     },
+    removeProduct: (state, action: PayloadAction<string | string[]>) => {
+      return {
+        ...state,
+        cart: state.cart.filter((x) => x.id !== action.payload),
+      };
+    },
     login: (state, action) => {
       state.isAuth = true;
       state.token = action.payload.token;
@@ -65,7 +70,14 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login, logout, addProduct, removeProducts } = userSlice.actions;
+export const {
+  login,
+  logout,
+  addProduct,
+  removeProducts,
+  changeProductQuantity,
+  removeProduct,
+} = userSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

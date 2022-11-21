@@ -1,7 +1,7 @@
 import axios from "axios";
 import routes from "./routes";
 
-async function getProductById(id: string) {
+async function getProductById(id: string | string[]) {
   try {
     const {
       data: { product },

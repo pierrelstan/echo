@@ -23,7 +23,7 @@ export default function AddToCartForm({ product }: AddItemFormProps) {
       addProduct({
         ...product,
         id: product._id,
-        quantity: 0,
+        quantity: 1,
       })
     );
     setShowAlert(true);

@@ -1,5 +1,6 @@
 const routes = {
-  product: (id: string) => `/product/${id}`,
+  index: "/",
+  product: (id: string | string[]) => `/product/${id}`,
   category: (id: string) => `/category/${id}`,
   cart: "/cart",
   checkout: "/checkout",
@@ -11,7 +12,7 @@ const routes = {
 
   api: {
     products: "/products",
-    product: (id: string = "") => `/products/${id}`,
+    product: (id: string | string[] = "") => `/products/${id}`,
   },
 };
 
