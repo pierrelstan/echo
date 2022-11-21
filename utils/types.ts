@@ -14,12 +14,12 @@ type ProductCategory = "Xbox" | "Ps5" | "Pc";
 export const Categories: ProductCategory[] = ["Xbox", "Ps5", "Pc"];
 
 type CartProductData = Product & {
-  id: string;
+  id: string | string[];
   quantity: number;
 };
 
 interface CartProduct extends Product {
-  id: string;
+  id: string | string[];
   quantity: number;
 }
 
