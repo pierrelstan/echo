@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br />
+<p align="center">
+  <h2 align="center">Welcome to Echo Store 👋🏾</h2>
+  <h4 align="center">Echo Store App allows authenticated users to buy gaming products.
+</p>
 
-## Getting Started
+![alt](https://res.cloudinary.com/stanley/image/upload/v1674082147/Home_spqxuh.png)
 
-First, run the development server:
+## About the project
 
-```bash
-npm run dev
-# or
-yarn dev
+Echo store is a full stack web application for gaming lovers.Users can add to cart and order gaming products after they authenticated.
+
+## Live Link (Vercel)
+
+[click here](https://echo-one.vercel.app/) (vercel)
+
+## Echo Store Api
+
+[Click here](https://github.com/pierrelstan/echo-store-backend)
+
+## Future Implementation
+
+- Add Admin Functionality.
+- Add favorites.
+- Add User Profile to the More Page and other Functionalities.
+
+## Built with:
+
+- [Nextjs](https://nextjs.org/)
+- [Material-ui](https://mui.com/)
+- [Redux](https://redux.js.org/)
+- [cypress](https://cypress.com/)
+
+## Installation
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/pierrelstan/echo.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Open the project Directory in your local machine
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+cd echo
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. install packages
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+yarn install
+```
 
-## Learn More
+1. Run Application
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+yarn run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+👤 Stanley Pierre Louis
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Twitter: [@pierrelstan](https://twitter.com/pierrelStan)
+- LinkedIn: [@pierrelstan](https://linkedin.com/in/pierre-louis-stanley-930110133)
