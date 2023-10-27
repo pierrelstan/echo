@@ -8,7 +8,7 @@
 
 ## About the project
 
-Echo store is a full stack web application for gaming lovers.Users can add to cart and order gaming products after they authenticated.
+Echo Store is a full-stack web application for gaming lovers.Users can add items to their cart and order gaming products after they have authenticated.
 
 ## Live Link (Vercel)
 
